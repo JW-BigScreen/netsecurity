@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uestc.netsecurity.mapper.StudentMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.uestc.netsecurity.entry.Student">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="school" property="school" />
+        <result column="city" property="city" />
+        <result column="address" property="address" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name AS name, school AS school, city, age,address
+    </sql>
+
+    <select id="getList" resultType="com.uestc.netsecurity.entry.Student">
+        select <include refid="Base_Column_List" /> from t_student
+    </select>
+
+</mapper>
